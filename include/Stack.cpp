@@ -14,7 +14,12 @@ Stack::Stack(const Stack& other) : numElem(0), top(nullptr) {
 
 Stack& Stack::operator=(const Stack& other) {
     if(this != &other) {
-
+        clear();
+        Element* current = other.top;
+        while(current != nullptr) {
+            push(current->value);
+            current = current->next;
+        }
     }
     return *this;
 }
